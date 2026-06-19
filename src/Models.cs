@@ -43,5 +43,5 @@ public class Release : ReleaseIdentifiers
     public string? ValuesFile { get; set; }
 
     [TypeProperty("Optional list of --set overrides.")]
-    public IList<HelmSetValue>? Set { get; set; }
+    public List<HelmSetValue>? Set { get; set; }
 }
