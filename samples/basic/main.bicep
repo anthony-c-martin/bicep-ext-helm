@@ -1,57 +1,15 @@
 targetScope = 'local'
 
-param vaultUri string
+extension az
+extension local
 
-@secure()
-param secretVal string
-
-extension helm with {
-  vaultUri: vaultUri
+resource getKubeConfig 'Script' = {
+  type: 'bash'
+  script: 'kubectl config view --raw'
 }
 
-resource secret 'Secret' = {
-  name: 'mysecret'
-  value: secretVal
-}
-
-resource cert 'Certificate' = {
-  name: 'mycert'
-  issuer: {
-    name: 'Self'
-  }
-  key: {
-    exportable: true
-    keySize: 2048
-    keyType: 'RSA'
-    reuseKey: true
-  }
-  secret: {
-    contentType: 'application/x-pkcs12'
-  }
-  lifetimeActions: [
-    {
-      action: {
-        actionType: 'AutoRenew'
-      }
-      trigger: {
-        daysBeforeExpiry: 30
-      }
-    }
-  ]
-  x509Properties: {
-    ekus: ['1.3.6.1.5.5.7.3.1']
-    keyUsage: [
-      'cRLSign'
-      'dataEncipherment'
-      'digitalSignature'
-      'keyAgreement'
-      'keyCertSign'
-      'keyEncipherment'
-    ]
-    subjectAlternativeNames: {
-      dnsNames: ['internal.contoso.com', 'domain.hello.world']
-    }
-    subject: 'CN=hello-world'
-    validityInMonths: 12
+module aksStoreApp 'helm.bicep' = {
+  params: {
+    kubeConfig: base64(getKubeConfig.stdout)
   }
 }

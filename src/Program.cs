@@ -15,8 +15,7 @@ builder.Services
         isSingleton: true,
         typeAssembly: typeof(Program).Assembly,
         configurationType: typeof(Configuration))
-    .WithResourceHandler<CertificateHandler>()
-    .WithResourceHandler<SecretHandler>();
+    .WithResourceHandler<ReleaseHandler>();
 
 var app = builder.Build();
 app.MapBicepExtension();
