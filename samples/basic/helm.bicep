@@ -8,13 +8,21 @@ extension helm with {
 }
 
 resource release 'Release' = {
-  name: 'nginx-ingress-controller'
-  repository: 'https://charts.bitnami.com/bitnami'
-  chart: 'nginx-ingress-controller'
+  name: 'azure-vote'
+  repository: 'https://azure-samples.github.io/helm-charts'
+  chart: 'azure-vote'
   set: [
     {
-      name: 'service.type'
-      value: 'ClusterIP'
+      name: 'title'
+      value: 'Do you love Bicep?'
+    }
+    {
+      name: 'value1'
+      value: 'Of course!'
+    }
+    {
+      name: 'image.tag'
+      value: 'Nope :('
     }
   ]
 }

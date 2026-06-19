@@ -5,8 +5,8 @@ namespace Bicep.Extension.Helm;
 
 public class Configuration
 {
-    [TypeProperty("The resource ID of the AKS cluster.", ObjectTypePropertyFlags.Required)]
-    public required string AksResourceId { get; set; }
+    [TypeProperty("The Kubernetes configuration file content.", ObjectTypePropertyFlags.Required)]
+    public required string KubeConfig { get; set; }
 }
 
 public class ReleaseIdentifiers

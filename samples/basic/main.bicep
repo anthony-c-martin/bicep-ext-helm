@@ -8,7 +8,7 @@ resource getKubeConfig 'Script' = {
   script: 'kubectl config view --raw'
 }
 
-module aksStoreApp 'helm.bicep' = {
+module helmDeploy 'helm.bicep' = {
   params: {
     kubeConfig: base64(getKubeConfig.stdOut)
   }
