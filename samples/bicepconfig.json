@@ -1,6 +1,7 @@
 {
   "experimentalFeaturesEnabled": {
-    "localDeploy": true
+    "localDeploy": true,
+    "ociEnabled": true
   },
   "cloud": {
     "credentialPrecedence": [
