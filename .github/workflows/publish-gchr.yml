@@ -46,7 +46,7 @@ jobs:
       - name: Publish Extension
         run: |
           target="br:ghcr.io/anthony-c-martin/bicep-ext-helm:${{ steps.nbgv.outputs.SimpleVersion }}"
-          bash scripts/publish.sh $target
+          bash ../scripts/publish.sh $target
 
           echo "Published extension \`$target\`." >> $GITHUB_STEP_SUMMARY
         working-directory: ./samples
