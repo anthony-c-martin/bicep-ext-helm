@@ -7,7 +7,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "Build Solution",
-      "program": "${workspaceFolder}/src/bin/Debug/bicep-ext-helm",
+      "program": "${workspaceFolder}/src/Bicep.Extension.Helm/bin/Debug/bicep-ext-helm",
       "args": [
         "--http",
         "8080"

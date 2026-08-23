@@ -13,12 +13,12 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <RuntimeIdentifiers>win-x64;win-arm64;osx-x64;osx-arm64;linux-x64;linux-arm64</RuntimeIdentifiers>
+    <RuntimeIdentifiers>win-x64;win-arm64;osx-arm64;linux-x64;linux-arm64</RuntimeIdentifiers>
+    <!-- Overridden by the release pipeline via -p:Version=<version>. -->
+    <Version>0.0.1-dev</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Azure.Bicep.Local.Extension" Version="0.44.1" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.7.112" />
   </ItemGroup>
 </Project>

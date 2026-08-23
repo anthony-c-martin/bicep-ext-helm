@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Bicep.Extension.Helm.Tests/Bicep.Extension.Helm.Tests.csproj" />
+  <Project Path="src/Bicep.Extension.Helm/Bicep.Extension.Helm.csproj" />
+</Solution>

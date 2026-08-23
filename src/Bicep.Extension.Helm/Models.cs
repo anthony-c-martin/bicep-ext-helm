@@ -5,7 +5,7 @@ namespace Bicep.Extension.Helm;
 
 public class Configuration
 {
-    [TypeProperty("The Kubernetes configuration file content.", ObjectTypePropertyFlags.Required)]
+    [TypeProperty("The Kubernetes configuration file content, either base64-encoded or as raw YAML.", ObjectTypePropertyFlags.Required)]
     public required string KubeConfig { get; set; }
 }
 

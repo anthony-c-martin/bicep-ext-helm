@@ -4,7 +4,7 @@
     "ociEnabled": true
   },
   "extensions": {
-    "helm": "br:ghcr.io/anthony-c-martin/bicep-ext-helm:0.0.1"
+    "github": "br:ghcr.io/anthony-c-martin/bicep-ext-github:0.0.1"
   },
   "implicitExtensions": []
 }

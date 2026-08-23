@@ -1,15 +1,28 @@
 targetScope = 'local'
 
-extension az
-extension local
+@secure()
+param kubeConfig string
 
-resource getKubeConfig 'Script' = {
-  type: 'Bash'
-  script: 'kubectl config view --raw'
+extension helm with {
+  kubeConfig: kubeConfig
 }
 
-module helmDeploy 'helm.bicep' = {
-  params: {
-    kubeConfig: base64(getKubeConfig.stdOut)
-  }
+resource release 'Release' = {
+  name: 'azure-vote'
+  repository: 'https://azure-samples.github.io/helm-charts'
+  chart: 'azure-vote'
+  set: [
+    {
+      name: 'title'
+      value: 'Do you love Bicep?'
+    }
+    {
+      name: 'value1'
+      value: 'Of course!'
+    }
+    {
+      name: 'image.tag'
+      value: 'Nope :('
+    }
+  ]
 }
